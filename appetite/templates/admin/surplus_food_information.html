@@ -1,0 +1,60 @@
+{% extends 'admin/admin_nav.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
+<head>
+    <link href="{% static 'css/style1.css' %}" rel="stylesheet">
+</head>
+{% block content %}
+<section class="main">
+    <div class="main-div" style="margin-left:40px;">
+        <table border="1"  class="table table-striped table-responsive">
+            <tr>
+                <th>Food Details</th>
+                <th>Supplier Name</th>
+                <th>Supplier Address</th>
+                <th>Supplier City</th>
+                <th>Supplier Phone No</th>
+                <th>Pickup Time</th>
+                <th>Pickup status</th>
+                <th>User Name</th>
+                <th>User Address</th>
+                <th>User City</th>
+                <th>User Phone No</th>
+                <th>Delivered At</th>
+                <th>Delivery status</th>
+            </tr>
+            {% for i in page_obj %}
+            <tr>
+                <td><img alt="" height="50px" src="{{i.surplus_id.image.url}}" width="50px"></td>
+                <td>{{i.surplus_id.supplier_id.name}}</td>
+                <td>{{i.surplus_id.supplier_id.address}}</td>
+                <td>{{i.surplus_id.supplier_id.city}}</td>
+                <td>{{i.surplus_id.supplier_id.phone_no}}</td>
+                <td>{{i.pickup_at}}</td>
+                {% if i.pickup_status %}
+                <td>Delivered</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+                <td>{{i.user_id.name}}</td>
+                <td>{{i.user_id.address}}</td>
+                <td>{{i.user_id.city}}</td>
+                <td>{{i.user_id.phone_no}}</td>
+                <td>{{i.delivered_at}}</td>
+                {% if i.deliver_status %}
+                <td>Delivered</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <center>{% include "pagination.html" %}</center>
+</section>
+{% endblock content %}
+

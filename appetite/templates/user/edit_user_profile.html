@@ -1,0 +1,44 @@
+{% extends 'user/user_nav.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
+<head>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+{% block content %}
+<section class="main" style="height:auto;">
+    <center><h4> Profile Edit  </h4></center>
+    <div class="main-div">
+        <form action="" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Profile Pic</label>
+                <img class="rounded mx-auto d-block" src="{{users.profile_pic.url}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Users Id</label>
+                <input class="form-control" disabled type="text" value="{{users.reg_id}}">
+            </div>
+            {% bootstrap_form form_key %}
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" disabled type="text" value="{{users.email}}">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Id Proof</label>
+                <img class="rounded mx-auto d-block" src="{{users.id.url}}">
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary mx-auto d-grid gap-2 col-12" type="submit" value="Update">
+            </div>
+            <br>
+            <br>
+        </form>
+
+    </div>
+</section>
+{% endblock content %}

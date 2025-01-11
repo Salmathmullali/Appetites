@@ -1,0 +1,80 @@
+{% extends 'admin/admin_nav.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
+<head>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+{% block content %}
+<section class="main" style="height:auto;">
+    <br>
+    <center><h2> Profile View </h2></center>
+        <center>
+    <div class="col-xs-12"  style="padding:10px;">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <div class="alert alert-warning" role="alert" style="width:50%;">
+                <li style="list-style-type: none;" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    </center>
+    <div class="main-div">
+        <form action=""   method="post" >
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Admin Id</label>
+                <input class="form-control" disabled type="text" value="{{admin.reg_id}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input class="form-control" disabled type="text" value="{{admin.name}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="exampleFormControlTextarea1">Address</label>
+                <textarea class="form-control" disabled id="exampleFormControlTextarea1"
+                          rows="3">{{admin.address}}</textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input class="form-control" disabled type="text" value="{{admin.phone_no}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">State</label>
+                <input class="form-control" disabled type="text" value="{{admin.state}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">District</label>
+                <input class="form-control" disabled type="text" value="{{admin.district}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">City</label>
+                <input class="form-control" disabled type="text" value="{{admin.city}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control" disabled type="text" value="{{admin.email}}">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input class="form-control" disabled type="password" value="{{admin.password}}">
+            </div>
+
+            <div class="mb-3">
+                <a class="btn btn-primary mx-auto d-grid gap-2 col-12"
+                   href="{% url 'edit_admin_profile' login_id %}"> Edit</a>
+            </div>
+            <br>
+            <br>
+        </form>
+
+    </div>
+</section>
+
+{% endblock content %}

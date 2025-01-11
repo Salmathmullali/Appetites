@@ -1,0 +1,58 @@
+.main{
+
+ justify-content:center;
+ align-item:center;
+ height:100vh;
+}
+.main-div{
+justify-content:center;
+align-item:center;
+display:flex;
+padding:30px;
+padding-top:80px;
+}
+
+.msg_div{
+justify-content:center;
+align-item:center;
+display:flex;
+padding:50px;
+list-style-type: none;
+color:red;
+}
+
+.form-control {
+    color: black;
+}
+
+
+
+ .form-control::placeholder{
+  color: lightgray;
+  opacity: 0.8;
+}
+
+.reg_form{
+margin-top:50px;
+width:500px;
+margin-bottom:70px;
+}
+
+.form-label {
+color:gray;
+}
+
+#user_home{
+margin-top:400px;
+}
+.form-control:read-only {
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+select:selected{
+color:grey;}
+
+form{
+width:600px;
+}

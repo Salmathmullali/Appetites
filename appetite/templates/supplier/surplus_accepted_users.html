@@ -1,0 +1,78 @@
+{% extends 'supplier/supplier_nav.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
+<head>
+    <link href="{% static 'css/style1.css' %}" rel="stylesheet">
+</head>
+{% block content %}
+<section class="main">
+    <center>
+    <div class="col-xs-12"  style="padding:10px;">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <div class="alert alert-warning" role="alert" style="width:50%;">
+                <li style="list-style-type: none;" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    </center>
+    <div class="main-div">
+        <table border="1" class="table table-striped">
+            <tr>
+                <th>Details</th>
+                <th>Food Image</th>
+                <th>Uploaded On</th>
+                <th>Uploaded Time</th>
+                <th>Time Expire At</th>
+                <th>Accepted By</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Phone No</th>
+                <th>Pick Up At</th>
+                <th>Pick Up Status</th>
+                <th>Delivered At</th>
+                <th>Delivery Status</th>
+            </tr>
+
+            {% for i in page_obj %}
+            <tr>
+                <td>{{i.surplus_id.details}}</td>
+                <td><img alt="" height="50px" src="{{i.surplus_id.image.url}}" width="50px"></td>
+                <td>{{i.surplus_id.uploaded_on}}</td>
+                <td>{{i.surplus_id.uploaded_time}}</td>
+                <td>{{i.surplus_id.time_expire}}</td>
+                <td>{{i.user_id.name}}</td>
+                <td>{{i.user_id.address}}</td>
+                <td>{{i.user_id.city}}</td>
+                <td>{{i.user_id.phone_no}}</td>
+                <td>{{i.pickup_at}}</td>
+                {% if i.pickup_status %}
+                <td>Food Collected</td>
+                {% else %}
+                <td>Pickup Pending </td>
+                {% endif %}
+                 <td>{{i.delivered_at}}</td>
+                {% if i.deliver_status %}
+                <td>Delivered</td>
+                {% else %}
+                {% if i.pickup_status %}
+                <td>In Transit</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+    <center>{% include "pagination.html" %}</center>
+</section>
+{% endblock content %}
