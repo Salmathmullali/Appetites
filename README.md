@@ -33,4 +33,5 @@ Using the surplus food detail option, the suppliers can provide the info of exce
  Admin’s Home,
 			At admin Home, Options like-profile, users, suppliers, delivery agent, surplus food, complaints, feedbacks will be provided so the admin can easily access each one of them.
  In complaint page the admin can see the complaints raised by the users against the surplus food suppliers so that the admin can remove the particular food provider to avoid the problems taking place in the next request. the other option is the feedback, in which admin can see the feedbacks of users about the surplus food providers and can promote them in donating or providing surplus food information.
-![Uploading Screenshot 2025-02-16 165426.png…]()
+![Screenshot 2025-02-16 165426](https://github.com/user-attachments/assets/7b76d492-0ccd-42fd-8222-de9962a5dd50)
+
